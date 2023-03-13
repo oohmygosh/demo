@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.vipicu.demo.boot.entity.PageParam;
 import com.vipicu.demo.boot.entity.User;
 import com.vipicu.demo.boot.service.UserService;
-import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +22,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/page")
-    public Page<User> getPage(@Valid @RequestBody PageParam<User> dto){
+    public Page<User> getPage(@RequestBody PageParam<User> dto){
         return userService.page(dto.page(), dto.getData());
     }
 
